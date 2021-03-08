@@ -23,9 +23,11 @@ class Account {
 
     static function findByEmailAndPassword($email, $password) {
         $db = DbConnection::getInstance();
+        
         $query = "SELECT * FROM users WHERE email = ? AND password = ?";
         $req = $db->query($query, [$email, $password]);
         $rawData = $req->fetch();
+
         if(isset($rawData)) {
             return new Account(
                 $rawData["account_id"],
