@@ -33,7 +33,7 @@ class Account {
                 $rawData["account_id"],
                 $rawData["full_name"],
                 $rawData["email"],
-                $rawData["pasword"],
+                $rawData["password"],
                 $rawData["last_login_at"]
             );
         }
