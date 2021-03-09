@@ -18,7 +18,7 @@
                         <form method="POST">
                             <div class="form-group first">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" required placeholder="your-email@gmail.com" id="username" />
+                                <input type="email" class="form-control" name="email" required placeholder="your-email@gmail.com" id="username" value="<?php echo $_SESSION["email"] ?? "" ?>"/>
                             </div>
                             <div class="form-group last mb-3">
                                 <label for="password">Password</label>

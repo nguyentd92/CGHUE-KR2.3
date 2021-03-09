@@ -36,6 +36,9 @@ class AuthController extends BaseController {
         // Validate Request
         $errors = [];
 
+        // Store email to rewrite in view
+        $_SESSION["email"] = $email;
+
         $isMailValid = preg_match("/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g", $email);
         if(!$isMailValid) $errors[] = "Email is not valid";
         
