@@ -1,6 +1,9 @@
 <?php
 // Using constants
-require_once("contanst.php");
+require_once("constants.php");
+
+// Using Session
+session_start();
 
 // Using Db Connection for Application
 require_once("db_connection.php");
