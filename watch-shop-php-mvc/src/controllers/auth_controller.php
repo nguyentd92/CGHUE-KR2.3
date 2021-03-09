@@ -33,6 +33,22 @@ class AuthController extends BaseController {
         $email = $_POST["email"];
         $password = $_POST["password"];
 
+        // Validate Request
+        $errors = [];
+
+        $isMailValid = preg_match("/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g", $email);
+        if(!$isMailValid) $errors[] = "Email is not valid";
+        
+        $isPasswordValid = strlen($password) >= 6;
+        if(!$isPasswordValid) $errors[] = "Password must be at least 6 characters";
+        
+        if(count($errors) > 0) {
+            $_SESSION["errors"] = $errors;
+
+            header("Location:?controller=auth&action=login");
+            return;
+        }
+
         // Find user by email & password, if user has been existed, then store authentication, else pass error to view login
         $user = Account::findByEmailAndPassword($email, $password);
 
