@@ -40,4 +40,19 @@ class Account {
 
         return null;
     }
+
+    // Return Type: void
+    // Params: $account: Account
+    static function storeAuthUser($account) {
+        $_SESSION[AUTH_KEY] = serialize($account);
+    }
+
+    // Return Type: Account
+    static function getAuthUser() {
+        return isset($_SESSION[AUTH_KEY]) ? unserialize($_SESSION[AUTH_KEY]) : null;
+    }
+
+    static function removeAuthUser() {
+        unset($_SESSION[AUTH_KEY]);
+    }
 }
