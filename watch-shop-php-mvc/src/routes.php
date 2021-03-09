@@ -4,11 +4,25 @@
 $controller = $_GET["controller"] ?? null;
 $action = $_GET["action"] ?? null;
 
-// Declare Controller Instance and then call Action Method
-require_once("controllers/".$controller."_controller.php");
+// Try to Declare Controller Instance and then call Action Method, if wrong then header to error 404 page
+try {
+    $controllerPath = "controllers/".$controller."_controller.php";
 
-$controllerClassName = ucwords($controller)."Controller";
+    if(!file_exists($controllerPath)) {
+        throw new Exception("Controller File Path is not exist");
+    }
 
-$controllerInstance = new $controllerClassName;
+    require_once($controllerPath);
 
-$controllerInstance->$action();
+    $controllerClassName = ucwords($controller)."Controller";
+    
+    $controllerInstance = new $controllerClassName;
+
+    if(!method_exists($controllerInstance, $action)) {
+        throw new Exception("Action Method is not exist");
+    }
+    
+    $controllerInstance->$action();
+} catch(Exception $e) {
+    header("Location:?controller=error&action=error404");
+}
