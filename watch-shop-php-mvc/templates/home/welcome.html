@@ -1,0 +1,96 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeGym's Products Management</title>
+
+    <link
+      rel="shortcut icon"
+      href="../assets/images/CG_logo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../assets/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/styles/style.css" />
+  </head>
+
+  <body>
+    <!-- APPLICATION HEADER -->
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand" href="/">
+        <div class="app-logo">
+          <img src="../assets/images/CG_logo.png" alt="" />
+        </div>
+        Manager
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="#"> Welcome </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../products/list.html"> Products </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../categories/list.html"> Categories </a>
+        </li>
+      </ul>
+
+      <form action="../login/login.html" method="GET">
+        <a
+          class="nav-link"
+          onclick="confirm('Do you want to sign out?') && this.parentNode.submit();"
+          href="javascript:;"
+          >Sign Out</a
+        >
+      </form>
+    </nav>
+    <!-- END APPLICATION HEADER -->
+    <div class="container-fluid mt-3">
+      <div class="container">
+        <h1>Welcome to Codegym's CRUD Demo</h1>
+
+        <hr />
+
+        <h3>Collaboration with higher education</h3>
+        <p>
+          Following the increased popularity of coding bootcamps, some
+          universities have started their own intensive coding programs or
+          partnered with existing private coding bootcamps.
+        </p>
+
+        <h3>Online coding bootcamps</h3>
+        <p>
+          There are various online options for online bootcamps. These usually
+          work by matching students with a mentor and are also generally cheaper
+          and more accommodating to specific student needs.
+        </p>
+
+        <h3>Data science bootcamps and fellowships</h3>
+        <p>
+          Bootcamps that focus less on full stack development and more on
+          producing data scientists and data engineers are known as data science
+          bootcamps.
+        </p>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

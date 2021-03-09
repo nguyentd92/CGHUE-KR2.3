@@ -1,0 +1,188 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeGym's Products Management</title>
+
+    <link
+      rel="shortcut icon"
+      href="../assets/images/CG_logo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../assets/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/styles/style.css" />
+  </head>
+
+  <body>
+    <!-- APPLICATION HEADER -->
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand" href="/">
+        <div class="app-logo">
+          <img src="../assets/images/CG_logo.png" alt="" />
+        </div>
+        Manager
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="/"> Welcome </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="list.html"> Products </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../categories/list.html"> Categories </a>
+        </li>
+      </ul>
+
+      <form action="?controller=auth&amp;action=logOut" method="POST">
+        <a
+          class="nav-link"
+          onclick="confirm('Do you want to sign out?') &amp;&amp; this.parentNode.submit();"
+          href="javascript:;"
+          >Sign Out</a
+        >
+      </form>
+    </nav>
+    <!-- END APPLICATION HEADER -->
+    <div class="container-fluid mt-3">
+      <form class="container" method="POST">
+        <div class="row">
+          <div id="left_form_col" class="col-md-7">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Product's name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="p_name"
+                id="exampleFormControlInput1"
+                placeholder="Name is required"
+                required=""
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Belong to category</label>
+              <select
+                class="form-control"
+                name="p_category_id"
+                id="exampleFormControlSelect1"
+              >
+                <option value="8">Autumn Valentine</option>
+                <option value="7">Handwatch</option>
+                <option value="3">Notebook</option>
+                <option value="1">Phone</option>
+                <option value="2">Tablet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Cost Price</label>
+              <input
+                type="number"
+                class="form-control"
+                name="p_cost_price"
+                id="exampleFormControlInput1"
+                placeholder="USD"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Sell Price</label>
+              <input
+                type="number"
+                class="form-control"
+                name="p_sell_price"
+                id="exampleFormControlInput1"
+                placeholder="USD"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div id="choose-avatar" style="height: 344px">
+              <button
+                type="button"
+                onclick="input_avatar.click()"
+                class="btn btn-sm btn-light"
+              >
+                Choose image
+              </button>
+              <input id="input_avatar" type="file" name="p_file" hidden="" />
+              <input type="image" hidden="" id="avatar_preview" src="" />
+
+              <input id="avatar_url" name="p_image_url" type="text" hidden="" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Description</label>
+
+          <textarea
+            class="form-control"
+            placeholder="Some information..."
+            name="p_description"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-lg btn-block">
+            Store Product
+          </button>
+        </div>
+      </form>
+
+      <script src="../assets/scripts/script.js"></script>
+
+      <script>
+        const leftFormCol = document.querySelector("#left_form_col");
+        const avatarControl = document.querySelector("#choose-avatar");
+        const avatarPreview = document.querySelector("#avatar_preview");
+        const avatarUrl = document.querySelector("#avatar_url");
+
+        const input_avatar = document.querySelector("#input_avatar");
+
+        input_avatar.addEventListener("change", function () {
+          readURL(this, avatarPreview, avatarUrl);
+        });
+
+        function refreshAvatarControlSize() {
+          const height = leftFormCol.offsetHeight;
+          // console.log(height);
+
+          avatarControl.style.height = height + "px";
+        }
+
+        window.onload = () => {
+          refreshAvatarControlSize();
+        };
+
+        window.onresize = () => {
+          refreshAvatarControlSize();
+        };
+      </script>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

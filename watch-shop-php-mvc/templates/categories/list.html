@@ -1,0 +1,160 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeGym's Products Management</title>
+
+    <link
+      rel="shortcut icon"
+      href="../assets/images/CG_logo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../assets/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/styles/style.css" />
+  </head>
+
+  <body>
+    <!-- APPLICATION HEADER -->
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand" href="/">
+        <div class="app-logo">
+          <img src="../assets/images/CG_logo.png" alt="" />
+        </div>
+        Manager
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="../home/welcome.html"> Welcome </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../products/list.html"> Products </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#"> Categories </a>
+        </li>
+      </ul>
+
+      <form action="../login/login.html" method="GET">
+        <a
+          class="nav-link"
+          onclick="confirm('Do you want to sign out?') && this.parentNode.submit();"
+          href="javascript:;"
+          >Sign Out</a
+        >
+      </form>
+    </nav>
+    <!-- END APPLICATION HEADER -->
+    <div class="container-fluid mt-3">
+      <table class="table">
+        <thead class="thead">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Category</th>
+            <th scope="col" class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="">
+            <th class="align-middle" scope="row">1</th>
+            <td class="align-middle">Autumn Valentine</td>
+            <td class="text-center">
+              <form
+                class="d-inline"
+                onsubmit="return confirm('Do you want to remove `Autumn Valentine`')"
+                action="?controller=categories&amp;action=delete&amp;id=8"
+                method="POST"
+              >
+                <button type="submit" class="btn btn-link">Remove</button>
+              </form>
+            </td>
+          </tr>
+          <tr class="">
+            <th class="align-middle" scope="row">2</th>
+            <td class="align-middle">Handwatch</td>
+            <td class="text-center">
+              <form
+                class="d-inline"
+                onsubmit="return confirm('Do you want to remove `Handwatch`')"
+                action="?controller=categories&amp;action=delete&amp;id=7"
+                method="POST"
+              >
+                <button type="submit" class="btn btn-link">Remove</button>
+              </form>
+            </td>
+          </tr>
+          <tr class="">
+            <th class="align-middle" scope="row">3</th>
+            <td class="align-middle">Notebook</td>
+            <td class="text-center">
+              <form
+                class="d-inline"
+                onsubmit="return confirm('Do you want to remove `Notebook`')"
+                action="?controller=categories&amp;action=delete&amp;id=3"
+                method="POST"
+              >
+                <button type="submit" class="btn btn-link">Remove</button>
+              </form>
+            </td>
+          </tr>
+          <tr class="">
+            <th class="align-middle" scope="row">4</th>
+            <td class="align-middle">Phone</td>
+            <td class="text-center">
+              <form
+                class="d-inline"
+                onsubmit="return confirm('Do you want to remove `Phone`')"
+                action="?controller=categories&amp;action=delete&amp;id=1"
+                method="POST"
+              >
+                <button type="submit" class="btn btn-link">Remove</button>
+              </form>
+            </td>
+          </tr>
+          <tr class="">
+            <th class="align-middle" scope="row">5</th>
+            <td class="align-middle">Tablet</td>
+            <td class="text-center">
+              <form
+                class="d-inline"
+                onsubmit="return confirm('Do you want to remove `Tablet`')"
+                action="?controller=categories&amp;action=delete&amp;id=2"
+                method="POST"
+              >
+                <button type="submit" class="btn btn-link">Remove</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- FAB CREATE CATEGORY LINK -->
+      <a
+        class="fab-button-mid-bot btn btn-primary btn-lg"
+        type="button"
+        href="../categories/upsert.html"
+        >+ Add new Category</a
+      >
+      <!-- END FAB CREATE CATEGORY LINK -->
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
