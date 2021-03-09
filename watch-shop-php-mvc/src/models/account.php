@@ -21,21 +21,38 @@ class Account {
         $this->last_login_at = $last_login_at;
     }
 
+    protected function updateLastLoginAt() {
+        $db = DbConnection::getInstance();
+
+        $currentTime = date("Y-m-d H:i:s", time());
+        
+        $sql = "UPDATE accounts SET last_login_at = ? WHERE account_id = ?";
+        
+        $req = $db->prepare($sql);
+        $req->execute([$currentTime, $this->account_id]);
+    }
+
     static function findByEmailAndPassword($email, $password) {
         $db = DbConnection::getInstance();
         
-        $query = "SELECT * FROM users WHERE email = ? AND password = ?";
-        $req = $db->query($query, [$email, $password]);
+        $query = "SELECT * FROM accounts WHERE email = ? AND password = ?";
+        
+        $req = $db->prepare($query);
+        $req->execute([$email, $password]);
         $rawData = $req->fetch();
 
-        if(isset($rawData)) {
-            return new Account(
+        if($rawData) {
+            $account = new Account(
                 $rawData["account_id"],
                 $rawData["full_name"],
                 $rawData["email"],
                 $rawData["password"],
                 $rawData["last_login_at"]
             );
+
+            $account->updateLastLoginAt();
+
+            return $account;
         }
 
         return null;
