@@ -39,7 +39,7 @@ class AuthController extends BaseController {
         if($user) {
             Account::storeAuthUser($user);
 
-            header("Location:?controller=home&action=welcome");
+            header("Location:?controller=dashboard&action=dashboard");
         } else {
             // Store errors into session
             $_SESSION["errors"] = ["Email or password is not matched"];
@@ -52,9 +52,9 @@ class AuthController extends BaseController {
     {
         // Check if user has been authenticated, then redirect to home page
         if(Account::getAuthUser()) {
-            header("Location:?controller=home&action=welcome");
+            header("Location:?controller=dashboard&action=dashboard");
         }
         
-        $this->render('login', [], 'auth_layout');
+        $this->render('login', [], 'auth');
     }
 }
